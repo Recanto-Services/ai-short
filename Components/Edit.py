@@ -17,6 +17,19 @@ def extractAudio(video_path):
         return None
 
 
+<<<<<<< HEAD
+=======
+def find_good_intervals(transcriptions, max_duration=60):
+    intervals = []
+    for text, start, end in transcriptions:
+        # Se o intervalo for maior que a duração máxima, cortamos
+        if end - start > max_duration:
+            end = start + max_duration
+        intervals.append((start, end))
+    return intervals
+
+
+>>>>>>> 81c4e01 (second commit)
 def crop_videos(input_file, intervals):
     with VideoFileClip(input_file) as video:
         for i, (start_time, end_time) in enumerate(intervals):
